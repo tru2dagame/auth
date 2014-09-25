@@ -42,3 +42,13 @@ UniFi 微信授权上网代码
 
 	/* 关注后的欢迎内容 */
 	defined('WEIXIN_ADD_WELCOME_MESSAGE') or define('WEIXIN_ADD_WELCOME_MESSAGE', '您好');
+
+2.数据库配置。新建名为unifi的数据库，执行一下sql语句建表
+
+	CREATE TABLE IF NOT EXISTS `unifi`.`weixinTest` (
+	   `id` int(11) NOT NULL AUTO_INCREMENT,
+	   `Mac_ID` varchar(20) NOT NULL,
+	   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	   `fromUserName` varchar(255) NOT NULL,
+	   PRIMARY KEY (`id`)
+	) ENGINE=MyISAM DEFAULT CHARSET=utf8;
