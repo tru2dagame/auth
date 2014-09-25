@@ -28,6 +28,9 @@ defined('DB_PORT') or define('DB_PORT', '3306');
 
 defined('DB_TABLE') or define('DB_TABLE', '');//表名
 
+defined('WEIXIN_AUTH_MESSAGE') or define('WEIXIN_AUTH_MESSAGE', '我要上网');//当用户发送此内容才能获取返回
+defined('WEIXIN_ADD_WELCOME_MESSAGE') or define('WEIXIN_ADD_WELCOME_MESSAGE', '您好，欢迎关注UBNT！Ubiquiti Networks公司在全球范围内设计，制造和销售创新性的宽带无线解决方案。UBNT的产品包括具有颠覆意义的无线产品，如Bullet（TM），NanoStation（TM），以及其他结合基于内部开发、业界领先的产品设计核心技术，包括Air OS操作系统和频率自由技术（100MHz至10GHz的RF设计）。访问UBNT官方主页www.ubnt.com.cn 官方论坛bbs.ubnt.com.cn 官方商城store.ubnt.com.cn了解更多。');//关注后的欢迎内容
+
 
 
 
@@ -35,7 +38,6 @@ defined('DB_TABLE') or define('DB_TABLE', '');//表名
 /* 路径和必要文件 */
 defined('ROOT_PATH') or define('ROOT_PATH', dirname(__FILE__));
 defined('DEPS_PATH') or define('DEPS_PATH', ROOT_PATH . '/deps');
-defined('TEMPLATE_PATH') or define('TEMPLATE_PATH', ROOT_PATH . '/template');
 defined('SITES_PATH') or define('SITES_PATH', ROOT_PATH . '/s');
 defined('WEIXIN_PATH') or define('WEIXIN_PATH', ROOT_PATH . '/weixin-sdk');
 /* cookie 存放路径 */
