@@ -1,6 +1,12 @@
 UniFi 微信授权上网代码
 ===========
 
+##服务器配置（本教程针对Linux服务器）
+1.需要一台有公网固定ip的服务器
+2.搭建LNMP（Linux+Nginx+MySQL+PHP）环境，可参照[lnmp](http://lnmp.org/install.html)
+3.下载本次案例代码，将weixin重命名为guest，放到/home/wwwroot/目录下
+
+##代码配置
 1.配置config文件
 
 	/* 服务器配置 */
