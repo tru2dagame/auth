@@ -18,7 +18,8 @@ switch($type) {
     case Wechat::MSGTYPE_TEXT:
         $content = $rev->getRevContent();
         if ($content == WEIXIN_AUTH_MESSAGE) {
-            $weObj->text("<a href='" . SERVER_HOST . "/guest/weixin-sdk/redirct.php?fromUserName=" . $fromUserName . "'>点击上网</a>")->reply();
+            $text = "<a href='" . SERVER_HOST . "/guest/weixin-sdk/redirct.php?fromUserName=" . $fromUserName . "'>点击上网</a>";
+            $weObj->text($text)->reply();
         }
         break;
     case Wechat::MSGTYPE_EVENT:
