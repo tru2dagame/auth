@@ -18,7 +18,7 @@ UniFi 微信授权上网代码
 	defined('SERVER_HOST') or define('SERVER_HOST', 'http://1.1.1.1');
 
 	/* 微信 开发者中心->服务器配置 Token值 */
-	defined('WECHAT_TOKEN') or define('WECHAT_TOKEN', 'test');
+	defined('WECHAT_TOKEN') or define('WECHAT_TOKEN', 'test');//需和公众号tonken配置一致
 
 	/* UniFi 配置 */
 	defined('UNIFI_SERVER') or define('UNIFI_SERVER', 'https://1.1.1.1:8443');
@@ -32,15 +32,15 @@ UniFi 微信授权上网代码
 	defined('DEFAULT_URL') or define('DEFAULT_URL', 'http://www.ubnt.com.cn');
 
 	/* 配置mysql */
-	defined('DB_HOST') or define('DB_HOST', 'localhost');
-	defined('DB_USERNAME') or define('DB_USERNAME', 'root');
-	defined('DB_PASSWORD') or define('DB_PASSWORD', 'password');
-	defined('DB_DBNAME') or define('DB_DBNAME', 'unifi');
-	defined('DB_PORT') or define('DB_PORT', '3306');
+	defined('DB_HOST') or define('DB_HOST', 'localhost'); //数据库地址
+	defined('DB_USERNAME') or define('DB_USERNAME', 'root'); //数据库用户名
+	defined('DB_PASSWORD') or define('DB_PASSWORD', 'password'); //数据库密码
+	defined('DB_DBNAME') or define('DB_DBNAME', 'unifi'); //数据库名字
+	defined('DB_PORT') or define('DB_PORT', '3306'); //数据库端口号
 
 	defined('DB_TABLE') or define('DB_TABLE', 'weixinTest');//表名
 
-	/* 当用户发送此内容才能获取返回 */
+	/* 当用户发送此内容才能获取上网连接 */
 	defined('WEIXIN_AUTH_MESSAGE') or define('WEIXIN_AUTH_MESSAGE', '我要上网');
 
 	/* 关注后的欢迎内容 */
