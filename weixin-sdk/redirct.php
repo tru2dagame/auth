@@ -19,7 +19,7 @@
                 echo "var url = '" . $url . "';";
             ?>
             var random = +new Date();
-            window.location.href = url + "&" + random;
+            window.location.href = url + "&currentTime=" + random;
         }, 1000);
     </script>
 </body>
