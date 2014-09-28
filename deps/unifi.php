@@ -36,8 +36,8 @@ class UniFi {
         curl_setopt($ch, CURLOPT_POSTFIELDS,
             "login=login&username=" . UNIFI_USER . "&password=" . UNIFI_PASSWORD);
 
-        curl_exec ($ch);
-        curl_close ($ch);
+        curl_exec($ch);
+        curl_close($ch);
     }
 
     private static function authorize($id, $minutes) {
@@ -65,8 +65,8 @@ class UniFi {
         curl_setopt($ch, CURLOPT_URL, UNIFI_SERVER . '/api/s/' . self::$site . '/cmd/stamgr');
         curl_setopt($ch, CURLOPT_POSTFIELDS, 'json=' . $data);
 
-        curl_exec ($ch);
-        curl_close ($ch);
+        curl_exec($ch);
+        curl_close($ch);
     }
 
     private static function unauthorize($id) {
@@ -93,8 +93,8 @@ class UniFi {
         curl_setopt($ch, CURLOPT_URL, UNIFI_SERVER . '/api/cmd/stamgr');
         curl_setopt($ch, CURLOPT_POSTFIELDS, 'json=' . $data);
 
-        curl_exec ($ch);
-        curl_close ($ch);
+        curl_exec($ch);
+        curl_close($ch);
     }
 
     private static function logout() {
@@ -113,8 +113,8 @@ class UniFi {
         // Make the API Call
         curl_setopt($ch, CURLOPT_URL, UNIFI_SERVER . '/logout');
 
-        curl_exec ($ch);
-        curl_close ($ch);
+        curl_exec($ch);
+        curl_close($ch);
     }
 
 }
