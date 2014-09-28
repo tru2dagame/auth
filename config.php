@@ -44,6 +44,7 @@ defined('WEIXIN_PATH') or define('WEIXIN_PATH', ROOT_PATH . '/weixin-sdk');
 defined('COOKIE_FILE_PATH') or define('COOKIE_FILE_PATH', ROOT_PATH . '/tmp/unifi_cookie');
 
 include_once (DEPS_PATH . '/unifi.php');
+include_once (DEPS_PATH . '/get_os.php');
 
 include_once (DEPS_PATH . '/mysql.php');
 $config = array(
