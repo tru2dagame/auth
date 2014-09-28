@@ -2,8 +2,8 @@ UniFi 微信授权上网代码
 ===========
 
 ###测试通过的controller版本
-v.3.2.1
-v.3.2.5
+	v.3.2.1
+	v.3.2.5
 
 ###微信配置和Controller配置
 请参照[优倍快技术论坛](http://bbs.ubnt.com.cn/forum.php?mod=viewthread&tid=9914&page=1)
