@@ -2,7 +2,14 @@
 
 class UniFi {
 
-    public static $site=NULL;
+    private static $site=NULL;
+    public static function set_site($site) {
+        self::$site = $site;
+    }
+
+    public static function get_site() {
+        return self::$site;
+    }
 
     private function __construct() {}
 
@@ -62,7 +69,7 @@ class UniFi {
         // Force SSL3 only
         curl_setopt($ch, CURLOPT_SSLVERSION, 3);
         // Make the API Call
-        curl_setopt($ch, CURLOPT_URL, UNIFI_SERVER . '/api/s/' . self::$site . '/cmd/stamgr');
+        curl_setopt($ch, CURLOPT_URL, UNIFI_SERVER . '/api/s/' . self::get_site() . '/cmd/stamgr');
         curl_setopt($ch, CURLOPT_POSTFIELDS, 'json=' . $data);
 
         curl_exec($ch);

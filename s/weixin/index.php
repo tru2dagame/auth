@@ -30,7 +30,7 @@ if (!is_array($res) || count($res) <= 0) {
     $mysql->query($sql);
 }
 
-UniFi::$site = $site;
+UniFi::set_site($site);
 UniFi::sendAuthorization($Mac_ID, WIFI_EXPIRED_TIME);
 sleep(5);
 header('Location: ' . DEFAULT_URL);
