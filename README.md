@@ -22,9 +22,6 @@ UniFi 微信和验证码授权上网代码
     /* 服务器配置 */
     defined('SERVER_HOST') or define('SERVER_HOST', 'http://1.1.1.1');
 
-    /* 微信 开发者中心->服务器配置 Token值 */
-    defined('WECHAT_TOKEN') or define('WECHAT_TOKEN', 'test');//需和公众号tonken配置一致
-
     /* UniFi 配置 */
     defined('UNIFI_SERVER') or define('UNIFI_SERVER', 'https://1.1.1.1:8443');
     defined('UNIFI_USER') or define('UNIFI_USER', 'username');
@@ -35,6 +32,9 @@ UniFi 微信和验证码授权上网代码
 
     /* 默认跳转页面 */
     defined('DEFAULT_URL') or define('DEFAULT_URL', 'http://www.ubnt.com.cn');
+
+    /* 微信 开发者中心->服务器配置 Token值 */
+    defined('WECHAT_TOKEN') or define('WECHAT_TOKEN', 'test');//需和公众号tonken配置一致
 
     /* 当用户发送此内容才能获取上网连接 */
     defined('WEIXIN_AUTH_MESSAGE') or define('WEIXIN_AUTH_MESSAGE', '我要上网');
