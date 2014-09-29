@@ -1,5 +1,12 @@
 <?php
 include_once ('../../config.php');
+
+$Mac_ID = isset($_GET['id']) ? addslashes($_GET['id']) : '';
+if (!$Mac_ID) {
+    header('Location: ' . DEFAULT_URL);
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
