@@ -14,7 +14,7 @@ if (!$Mac_ID) {
     exit();
 }
 
-$sql = "select * from " . DB_TABLE . " where `Mac_ID` = '{$Mac_ID}'";
+$sql = "select * from " . VERIFY_CODE_TABLE . " where `Mac_ID` = '{$Mac_ID}'";
 $res = $mysql->query($sql, 'all');
 
 if (is_array($res) && count($res) > 0) {
@@ -28,7 +28,7 @@ if (is_array($res) && count($res) > 0) {
         exit();
     }
 
-    $sql = "insert into " . DB_TABLE . " (`Mac_ID`)
+    $sql = "insert into " . VERIFY_CODE_TABLE . " (`Mac_ID`)
             values ('{$Mac_ID}')";
     $mysql->query($sql);
 }

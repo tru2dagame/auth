@@ -27,12 +27,12 @@ switch($type) {
                 $weObj->text(WEIXIN_ADD_WELCOME_MESSAGE)->reply();
         } else if ($event == 'unsubscribe') {  //取消关注微信操作
             //取消上网权限
-            $sql = "select * from " . DB_TABLE . " WHERE `fromUserName` = '{$fromUserName}'";
+            $sql = "select * from " . WEIXIN_TABLE . " WHERE `fromUserName` = '{$fromUserName}'";
             $res = $mysql->query($sql, 'all');
 
             if (is_array($res) && count($res) > 0) {
                 //删除数据
-                $sql = "DELETE FROM " . DB_TABLE . " WHERE `fromUserName` = '{$fromUserName}'";
+                $sql = "DELETE FROM " . WEIXIN_TABLE . " WHERE `fromUserName` = '{$fromUserName}'";
                 $mysql->query($sql);
             
                 foreach ($res as $key => $value) {
