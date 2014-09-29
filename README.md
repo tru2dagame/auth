@@ -46,7 +46,7 @@ UniFi 微信和验证码授权上网代码
     define('WEIBO_AKEY', '2134124');
     define('WEIBO_SKEY', 'fwafawf');
     define('WEIBO_CALLBACK_URL', 'https://1.1.1.1/guest/s/weibo/callback.php');
-    define('WEIBO_NAME', 'UBNT中国');
+    define('WEIBO_NAME', 'UBNT中国');//被关注的微博名
     define('WEIBO_MESSAGE', '你好');
     define('WEIBO_SEND_ERROR_MESSAGE', '发微博失败');
     define('WEIBO_FOLLOW_ERROR_MESSAGE', '关注失败');
