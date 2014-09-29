@@ -38,6 +38,7 @@ if ($token) {
         exit();
     }
     $sql = "select * from " . WEIBO_TABLE . " where `Mac_ID` = '{$Mac_ID}' and `fromUserName` = '{$from_user_name}";
+    echo $sql;
     $res = $mysql->query($sql, 'all');
 
     if (!is_array($res) || count($res) <= 0) {
