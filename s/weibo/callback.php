@@ -32,14 +32,13 @@ if (isset($_REQUEST['code'])) {
 if ($token) {
     $c = new SaeTClientV2( WEIBO_AKEY , WEIBO_SKEY , $token['access_token'] );
     $from_user_name = $c->get_uid();
-    echo "<pre>";print_r($from_user_name);
+    $from_user_name = $from_user_name['uid'];
     if (!$from_user_name) {
         echo 222;exit;
         header('Location: ' . DEFAULT_URL);
         exit();
     }
     $sql = "select * from " . WEIBO_TABLE . " where `Mac_ID` = '{$Mac_ID}' and `fromUserName` = '{$from_user_name}";
-    echo $sql;
     $res = $mysql->query($sql, 'all');
 
     if (!is_array($res) || count($res) <= 0) {
