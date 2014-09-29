@@ -29,6 +29,7 @@ if (isset($_REQUEST['code'])) {
 }
 
 if ($token) {
+    $c = new SaeTClientV2( WEIBO_AKEY , WEIBO_SKEY , $_SESSION['token']['access_token'] );
     $from_user_name = $c->get_uid();
     if (!$fromUserName) {
         header('Location: ' . DEFAULT_URL);
@@ -42,7 +43,7 @@ if ($token) {
                 values ('{$Mac_ID}', '{$fromUserName}')";
         $mysql->query($sql);
         setcookie( 'weibojs_'.$o->client_id, http_build_query($token) );
-        $c = new SaeTClientV2( WEIBO_AKEY , WEIBO_SKEY , $_SESSION['token']['access_token'] );
+
         $follow = $c->follow_by_name(WEIBO_NAME);//关注用户
         $send = $c->update(WEIBO_MESSAGE);//发送微博
         if(isset($follow['error_code'])
