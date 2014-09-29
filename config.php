@@ -1,6 +1,6 @@
 <?php
 
-//UniFi 微信授权上网配置信息
+//UniFi 微信和验证码授权上网配置信息
 
 /* 服务器配置 */
 defined('SERVER_HOST') or define('SERVER_HOST', '');
