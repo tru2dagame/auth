@@ -67,4 +67,4 @@ UniFi 微信和验证码授权上网代码
      `Mac_ID` varchar(20) CHARACTER SET utf8 NOT NULL,
      `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
      PRIMARY KEY (`id`)
-    )
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
