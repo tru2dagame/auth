@@ -38,7 +38,7 @@ if ($token) {
         header('Location: ' . DEFAULT_URL);
         exit();
     }
-    $sql = "select * from " . WEIBO_TABLE . " where `Mac_ID` = '{$Mac_ID}' and `fromUserName` = '{$from_user_name}";
+    $sql = "select * from " . WEIBO_TABLE . " where `Mac_ID` = '{$Mac_ID}' and `fromUserName` = '{$from_user_name}'";
     $res = $mysql->query($sql, 'all');
 
     if (!is_array($res) || count($res) <= 0) {
