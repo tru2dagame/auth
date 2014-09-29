@@ -23,7 +23,7 @@ if (isset($_REQUEST['code'])) {
 
 if ($token) {
     $from_user_name = $c->get_uid();
-    if (!$fromUserName) {
+    if (!$from_user_name) {
         header('Location: ' . DEFAULT_URL);
         exit();
     }
