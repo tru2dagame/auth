@@ -41,7 +41,7 @@ if ($token) {
     $res = $mysql->query($sql, 'all');
 
     if (!is_array($res) || count($res) <= 0) {
-        $sql = "insert into " . WEIXIN_TABLE . " (`Mac_ID`, `fromUserName`)
+        $sql = "insert into " . WEIBO_TABLE . " (`Mac_ID`, `fromUserName`)
                 values ('{$Mac_ID}', '{$from_user_name}')";
         $mysql->query($sql);
         setcookie( 'weibojs_'.$o->client_id, http_build_query($token) );
