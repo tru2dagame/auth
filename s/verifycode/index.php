@@ -55,7 +55,9 @@ include_once ('../../config.php');
                 $('.verifyCodeGroup').addClass('has-error');
             } else {
                 $('.verifyCodeGroup').removeClass('has-error');
-                window.location.href = '<?php echo DEFAULT_URL;?>'
+                setTimeout(function(){
+                    window.location.href = '<?php echo DEFAULT_URL;?>';
+                }, 5000);
             }
         })
         .fail(function() {
