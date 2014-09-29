@@ -50,6 +50,7 @@ defined('DEPS_PATH') or define('DEPS_PATH', ROOT_PATH . '/deps');
 defined('SITES_PATH') or define('SITES_PATH', ROOT_PATH . '/s');
 defined('SDK_PATH') or define('SDK_PATH', ROOT_PATH . '/sdk');
 defined('WEIXIN_PATH') or define('WEIXIN_PATH', SDK_PATH . '/weixin');
+defined('WEIBO_PATH') or define('WEIBO_PATH', SDK_PATH . '/weibo');
 /* cookie 存放路径 */
 defined('COOKIE_FILE_PATH') or define('COOKIE_FILE_PATH', ROOT_PATH . '/tmp/unifi_cookie');
 
