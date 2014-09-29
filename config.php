@@ -48,6 +48,7 @@ define('DB_PORT', '3306');
 
 define('WEIXIN_TABLE', '');//微信表名
 define('VERIFY_CODE_TABLE', '');//验证码表名
+define('WEIBO_TABLE', '');//微博表名
 //-----------------------------------MySQL----------------------------------------------------
 
 
