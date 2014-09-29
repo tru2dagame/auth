@@ -11,6 +11,7 @@ $site = is_string($site) ? $site : 'default';
 
 $Mac_ID = isset($_SESSION['Mac_ID']) ? addslashes($_SESSION['Mac_ID']) : '';
 if (!$Mac_ID) {
+    echo 111;exit;
     header('Location: ' . DEFAULT_URL);
     exit();
 }
@@ -32,6 +33,7 @@ if ($token) {
     $c = new SaeTClientV2( WEIBO_AKEY , WEIBO_SKEY , $token['access_token'] );
     $from_user_name = $c->get_uid();
     if (!$fromUserName) {
+        echo 222;exit;
         header('Location: ' . DEFAULT_URL);
         exit();
     }
