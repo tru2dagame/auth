@@ -73,7 +73,7 @@ UniFi 微信和验证码授权上网代码
        PRIMARY KEY (`id`)
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
     
-    CREATE TABLE `verify_code` (
+    CREATE TABLE IF NOT EXISTS `unifi`.`verify_code` (
      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
      `Mac_ID` varchar(20) CHARACTER SET utf8 NOT NULL,
      `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
