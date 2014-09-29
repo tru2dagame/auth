@@ -31,4 +31,3 @@ $_SESSION['Mac_ID'] = $Mac_ID;
 
 </body>
 </html>
-¸
