@@ -1,13 +1,12 @@
 <?php
-session_start();
 
 include_once('../../config.php');
 include_once(WEIBO_PATH . '/saetv2.ex.class.php');
 
 $o = new SaeTOAuthV2( WEIBO_AKEY , WEIBO_SKEY );
-$code_url = $o->getAuthorizeURL( WEIBO_CALLBACK_URL );
 
 $Mac_ID = isset($_GET['id']) ? addslashes($_GET['id']) : '';
+$code_url = $o->getAuthorizeURL( WEIBO_CALLBACK_URL . '?test=1&id=' . $Mac_ID );
 if (!$Mac_ID) {
     header('Location: ' . DEFAULT_URL);
     exit();
