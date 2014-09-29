@@ -7,7 +7,6 @@ $site = end($array_tmp);
 $site = is_string($site) ? $site : 'default';
 
 $Mac_ID = isset($_GET['id']) ? addslashes($_GET['id']) : '';
-$fromUserName = isset($_GET['fromUserName']) ? addslashes($_GET['fromUserName']) : '';
 $verify_code = isset($_GET['code']) ? trim(addslashes($_GET['code'])) : '';
 
 if (!$Mac_ID) {
@@ -29,8 +28,8 @@ if (is_array($res) && count($res) > 0) {
         exit();
     }
 
-    $sql = "insert into " . DB_TABLE . " (`Mac_ID`, `fromUserName`)
-            values ('{$Mac_ID}', '{$fromUserName}')";
+    $sql = "insert into " . DB_TABLE . " (`Mac_ID`)
+            values ('{$Mac_ID}')";
     $mysql->query($sql);
 }
 
