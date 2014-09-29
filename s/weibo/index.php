@@ -2,17 +2,20 @@
 
 session_start();
 
+header('Content-Type: text/html; charset=UTF-8');
+
 include_once('../../config.php');
 include_once(WEIBO_PATH . '/saetv2.ex.class.php');
 
 $o = new SaeTOAuthV2( WEIBO_AKEY , WEIBO_SKEY );
 
 $Mac_ID = isset($_GET['id']) ? addslashes($_GET['id']) : '';
-$code_url = $o->getAuthorizeURL( WEIBO_CALLBACK_URL . '?test=1&id=' . $Mac_ID );
+$code_url = $o->getAuthorizeURL( WEIBO_CALLBACK_URL);
 if (!$Mac_ID) {
     header('Location: ' . DEFAULT_URL);
     exit();
 }
+$_SESSION['Mac_ID'] = $Mac_ID;
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

@@ -9,7 +9,7 @@ $array_tmp = explode(DIRECTORY_SEPARATOR, dirname(__FILE__));
 $site = end($array_tmp);
 $site = is_string($site) ? $site : 'default';
 
-$Mac_ID = isset($_GET['id']) ? addslashes($_GET['id']) : '';
+$Mac_ID = isset($_SESSION['Mac_ID']) ? addslashes($_SESSION['Mac_ID']) : '';
 if (!$Mac_ID) {
     header('Location: ' . DEFAULT_URL);
     exit();
