@@ -1,6 +1,6 @@
 <?php
 
-include_once ('../config.php');
+include_once ('../../config.php');
 include_once (WEIXIN_PATH . '/class/wechat.class.php');
 
 $options = array(
@@ -18,7 +18,7 @@ switch($type) {
     case Wechat::MSGTYPE_TEXT:
         $content = $rev->getRevContent();
         if ($content == WEIXIN_AUTH_MESSAGE) {
-            $text = "<a href='" . SERVER_HOST . "/guest/weixin-sdk/redirct.php?fromUserName=" . $fromUserName . "'>点击上网</a>";
+            $text = "<a href='" . SERVER_HOST . "/guest/sdk/weixin/redirct.php?fromUserName=" . $fromUserName . "'>点击上网</a>";
             $weObj->text($text)->reply();
         }
         break;

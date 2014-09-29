@@ -14,7 +14,7 @@
     <script type="text/javascript">
         setTimeout(function(){
             <?php
-            include_once ('../config.php');
+            include_once ('../../config.php');
                 $url = 'http://www.ubnt.com.cn?v=2.0&' . $_SERVER['QUERY_STRING'];
                 echo "var url = '" . $url . "';";
             ?>
