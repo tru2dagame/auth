@@ -17,12 +17,9 @@ if (!$Mac_ID) {
 $sql = "select * from " . VERIFY_CODE_TABLE . " where `Mac_ID` = '{$Mac_ID}'";
 $res = $mysql->query($sql, 'all');
 
-if (is_array($res) && count($res) > 0) {
-
-} else {
+if (!is_array($res) || count($res) <= 0) {
     session_start();
-    if (!$fromUserName
-        || !$verify_code
+    if (!$verify_code
         || $verify_code != $_SESSION["ubnt_verify_num"]) {
         header('Location: template/introduce.html');
         exit();
