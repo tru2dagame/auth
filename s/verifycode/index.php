@@ -44,6 +44,8 @@ include_once ('../../config.php');
     }).on('click', '#verifyCodeSubmit', function(event) {
         event.preventDefault();
         /* Act on the event */
+        var $this = $(this);
+        $this.attr('disabled', 'disabled');
         $.ajax({
             url: 'ajax.php?<?php echo $_SERVER['QUERY_STRING'];?>',
             type: 'GET',
@@ -53,9 +55,11 @@ include_once ('../../config.php');
         .done(function(data) {
             if (data.code == '0') {
                 $('.verifyCodeGroup').addClass('has-error');
+                $this.removeAttr('disabled', 'disabled');
             } else {
                 $('.verifyCodeGroup').removeClass('has-error');
                 setTimeout(function(){
+                    $this.removeAttr('disabled', 'disabled');
                     window.location.href = '<?php echo DEFAULT_URL;?>';
                 }, 5000);
             }
