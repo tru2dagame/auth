@@ -36,6 +36,12 @@ UniFi 微信和验证码授权上网代码
     /* 默认跳转页面 */
     defined('DEFAULT_URL') or define('DEFAULT_URL', 'http://www.ubnt.com.cn');
 
+    /* 当用户发送此内容才能获取上网连接 */
+    defined('WEIXIN_AUTH_MESSAGE') or define('WEIXIN_AUTH_MESSAGE', '我要上网');
+
+    /* 关注后的欢迎内容 */
+    defined('WEIXIN_ADD_WELCOME_MESSAGE') or define('WEIXIN_ADD_WELCOME_MESSAGE', '您好');
+
     /* 配置mysql */
     defined('DB_HOST') or define('DB_HOST', 'localhost'); //数据库地址
     defined('DB_USERNAME') or define('DB_USERNAME', 'root'); //数据库用户名
@@ -45,12 +51,6 @@ UniFi 微信和验证码授权上网代码
 
     defined('DB_TABLE') or define('DB_TABLE', 'weixinTest');//微信表名
     defined('VERIFY_CODE_TABLE') or define('VERIFY_CODE_TABLE', 'verify_code');//验证码表名
-
-    /* 当用户发送此内容才能获取上网连接 */
-    defined('WEIXIN_AUTH_MESSAGE') or define('WEIXIN_AUTH_MESSAGE', '我要上网');
-
-    /* 关注后的欢迎内容 */
-    defined('WEIXIN_ADD_WELCOME_MESSAGE') or define('WEIXIN_ADD_WELCOME_MESSAGE', '您好');
 
 2.数据库配置。新建名为unifi的数据库，执行一下sql语句建表
 
