@@ -11,7 +11,6 @@ $site = is_string($site) ? $site : 'default';
 
 $Mac_ID = isset($_SESSION['Mac_ID']) ? addslashes($_SESSION['Mac_ID']) : '';
 if (!$Mac_ID) {
-    echo 111;exit;
     header('Location: ' . DEFAULT_URL);
     exit();
 }
@@ -34,7 +33,6 @@ if ($token) {
     $from_user_name = $c->get_uid();
     $from_user_name = $from_user_name['uid'];
     if (!$from_user_name) {
-        echo 222;exit;
         header('Location: ' . DEFAULT_URL);
         exit();
     }
