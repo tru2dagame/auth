@@ -10,7 +10,7 @@ $Mac_ID = isset($_GET['id']) ? addslashes($_GET['id']) : '';
 $verify_code = isset($_GET['code']) ? trim(addslashes($_GET['code'])) : '';
 
 if (!$Mac_ID) {
-    header('Location: template/introduce.html');
+    header('Location: http://www.ubnt.com.cn');
     exit();
 }
 
@@ -21,7 +21,9 @@ if (!is_array($res) || count($res) <= 0) {
     session_start();
     if (!$verify_code
         || $verify_code != $_SESSION["ubnt_verify_num"]) {
-        header('Location: template/introduce.html');
+        $res['code'] = 0; 
+        $res['msg'] = 'verify_code_error';
+        echo json_encode($res);
         exit();
     }
 
@@ -32,6 +34,4 @@ if (!is_array($res) || count($res) <= 0) {
 
 UniFi::set_site($site);
 UniFi::sendAuthorization($Mac_ID, WIFI_EXPIRED_TIME);
-sleep(5);
-header('Location: ' . DEFAULT_URL);
 exit();
