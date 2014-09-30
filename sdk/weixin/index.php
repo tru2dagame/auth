@@ -4,7 +4,8 @@ include_once ('../../config.php');
 include_once (WEIXIN_PATH . '/class/wechat.class.php');
 
 $options = array(
-        'token' => WECHAT_TOKEN,
+    'token' => WECHAT_TOKEN,
+    'logcallback' => 'logdebug',
     );
 $weObj = new Wechat($options);
 $weObj->valid();
@@ -50,6 +51,9 @@ switch($type) {
         break;
 }
 
+function logdebug($text){
+    file_put_contents('../data/log.txt',$text."\n",FILE_APPEND);
+};
 $weObj->debug = true;
 //获取菜单操作:
 $menu = $weObj->getMenu();
