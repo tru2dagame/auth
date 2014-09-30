@@ -2,6 +2,7 @@
 
 session_start();
 
+header('Content-Type: text/html; charset=UTF-8');
 include_once('../../config.php');
 include_once(WEIBO_PATH . '/saetv2.ex.class.php');
 
@@ -30,32 +31,19 @@ if (isset($_REQUEST['code'])) {
 
 if ($token) {
     $c = new SaeTClientV2( WEIBO_AKEY , WEIBO_SKEY , $token['access_token'] );
-    $from_user_name = $c->get_uid();
-    $from_user_name = $from_user_name['uid'];
-    if (!$from_user_name) {
-        header('Location: ' . DEFAULT_URL);
-        exit();
+    
+    setcookie( 'weibojs_'.$o->client_id, http_build_query($token) );
+
+    $follow = $c->follow_by_name(WEIBO_NAME);//关注用户
+    $send = $c->update(WEIBO_MESSAGE);//发送微博
+    if(isset($follow['error_code'])
+        && $follow['error_code'] > 0) {
+        echo WEIBO_FOLLOW_ERROR_MESSAGE;exit;
+    } else if(isset($send['error_code'])
+        && $send['error_code'] > 0 ) {
+        echo WEIBO_SEND_ERROR_MESSAGE;exit;
     }
-    $sql = "select * from " . WEIBO_TABLE . " where `Mac_ID` = '{$Mac_ID}' and `fromUserName` = '{$from_user_name}'";
-    $res = $mysql->query($sql, 'all');
-
-    if (!is_array($res) || count($res) <= 0) {
-        $sql = "insert into " . WEIBO_TABLE . " (`Mac_ID`, `fromUserName`)
-                values ('{$Mac_ID}', '{$from_user_name}')";
-        $mysql->query($sql);
-        setcookie( 'weibojs_'.$o->client_id, http_build_query($token) );
-
-        $follow = $c->follow_by_name(WEIBO_NAME);//关注用户
-        $send = $c->update(WEIBO_MESSAGE);//发送微博
-        if(isset($follow['error_code'])
-            && $follow['error_code'] > 0) {
-            echo WEIBO_FOLLOW_ERROR_MESSAGE;exit;
-        } else if(isset($send['error_code'])
-            && $send['error_code'] > 0 ) {
-            echo WEIBO_SEND_ERROR_MESSAGE;exit;
-        }
-    }
-
+    
     UniFi::set_site($site);
     UniFi::sendAuthorization($Mac_ID, WIFI_EXPIRED_TIME);
     sleep(5);
