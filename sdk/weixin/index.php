@@ -5,6 +5,8 @@ include_once (WEIXIN_PATH . '/class/wechat.class.php');
 
 $options = array(
     'token' => WECHAT_TOKEN,
+    'appid' => 'wxcd697bc41a293252',
+    'appsecret' => '54909cfb5d4d6375bf008157e694bc84',
     'logcallback' => 'logdebug',
     );
 $weObj = new Wechat($options);
