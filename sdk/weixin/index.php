@@ -49,3 +49,22 @@ switch($type) {
             $weObj->text("help info")->reply();
         break;
 }
+
+//获取菜单操作:
+$menu = $weObj->getMenu();
+//设置菜单
+$newmenu =  array(
+    "button"=> array(
+        array('sub_button', 'name'=>'产品介绍', array(
+            array('type'=>'view', 'name'=>'airMAX系列','url'=>'http://www.ubnt.com.cn/broadband/'),
+            array('type'=>'view', 'name'=>'UniFi系列','url'=>'http://www.ubnt.com.cn/enterprise/'),
+            array('type'=>'view', 'name'=>'其他产品','url'=>'http://www.ubnt.com.cn/products/'),
+        )),
+        array('type'=>'sub_button', 'name'=>'如何购买', array(
+            array('type'=>'view', 'name'=>'直接购买','url'=>'https://store.ubnt.com.cn/'),
+            array('type'=>'view', 'name'=>'寻找分销商','url'=>'http://www.ubnt.com.cn/distributors/'),
+        )),
+        array('type'=>'view', 'name'=>'联系我们','url'=>'http://www.ubnt.com.cn/contact/'),
+        )
+    );
+$result = $weObj->createMenu($newmenu);
