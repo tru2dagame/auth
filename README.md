@@ -1,4 +1,4 @@
-UniFi 微信和验证码授权上网代码
+UniFi 微信、微博和验证码授权上网代码
 ===========
 
 ###测试通过的controller版本
@@ -7,6 +7,9 @@ UniFi 微信和验证码授权上网代码
 
 ###微信配置和Controller配置
 请参照[优倍快技术论坛](http://bbs.ubnt.com.cn/forum.php?mod=viewthread&tid=9914&page=1)
+
+###微博配置和Controller配置
+请参照[优倍快技术论坛](http://bbs.ubnt.com.cn/forum.php?mod=viewthread&tid=9510)
 
 ###服务器配置（本教程针对Linux服务器）
 1.需要一台有公网固定ip的服务器
