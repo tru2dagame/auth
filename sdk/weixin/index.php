@@ -52,7 +52,7 @@ switch($type) {
 }
 
 function logdebug($text){
-    file_put_contents('../data/log.txt',$text."\n",FILE_APPEND);
+    file_put_contents('../tmp/log.txt',$text."\n",FILE_APPEND);
 };
 $weObj->debug = true;
 //获取菜单操作:
