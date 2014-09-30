@@ -2,6 +2,7 @@
 
 session_start();
 
+header('Content-Type: text/html; charset=UTF-8');
 include_once('../../config.php');
 include_once(WEIBO_PATH . '/saetv2.ex.class.php');
 
