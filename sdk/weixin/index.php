@@ -3,10 +3,14 @@
 include_once ('../../config.php');
 include_once (WEIXIN_PATH . '/class/wechat.class.php');
 
+function logdebug($text){
+    file_put_contents('../tmp/log.txt',$text."\n",FILE_APPEND);
+};
 $options = array(
     'token' => WECHAT_TOKEN,
     'appid' => 'wxcd697bc41a293252',
     'appsecret' => '54909cfb5d4d6375bf008157e694bc84',
+    'debug'=>true,
     'logcallback' => 'logdebug',
     );
 $weObj = new Wechat($options);
@@ -53,10 +57,6 @@ switch($type) {
         break;
 }
 
-function logdebug($text){
-    file_put_contents('../tmp/log.txt',$text."\n",FILE_APPEND);
-};
-$weObj->debug = true;
 //获取菜单操作:
 $menu = $weObj->getMenu();
 //设置菜单
