@@ -61,7 +61,6 @@ UniFi 微信和验证码授权上网代码
 
     define('DB_TABLE', 'weixinTest');//微信表名
     define('VERIFY_CODE_TABLE', 'verify_code');//验证码表名
-    define('WEIBO_TABLE', 'weibo');//微博表名
 
 2.数据库配置。新建名为unifi的数据库，执行一下sql语句建表
 
@@ -80,10 +79,6 @@ UniFi 微信和验证码授权上网代码
      PRIMARY KEY (`id`)
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-    CREATE TABLE IF NOT EXISTS `unifi`.`weibo` (
-       `id` int(11) NOT NULL AUTO_INCREMENT,
-       `Mac_ID` varchar(20) NOT NULL,
-       `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-       `fromUserName` varchar(255) NOT NULL,
-       PRIMARY KEY (`id`)
-    ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+###常见问题
+1.如一直授权失败，可能是tmp/unifi_cookie文件没有权限。可以改成777再试一下
