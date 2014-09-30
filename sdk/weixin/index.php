@@ -50,6 +50,9 @@ switch($type) {
         break;
 }
 
+function logdebug($text){
+    file_put_contents('../tmp/log.txt',$text."\n",FILE_APPEND);
+};
 //获取菜单操作:
 $menu = $weObj->getMenu();
 //设置菜单
