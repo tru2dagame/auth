@@ -40,6 +40,19 @@ switch($type) {
                     sleep(5);
                 }
             }
+        } else if (strtolower($event) == 'scan') {
+            $ticket = $weObj->getRevTicket();
+            $scene_id = $weObj->getRevSceneId();
+            $sql = "select * from " . WEIXIN_TABLE . " WHERE `scene_id` = '{$scene_id}'";
+            $res = $mysql->query($sql, 'all');
+            $Mac_ID = $res[0]['Mac_ID'];
+            $site = $res[0]['site'];
+            UniFi::set_site($site);
+            UniFi::sendAuthorization($Mac_ID, WIFI_EXPIRED_TIME);
+            $sql = "update " . WEIXIN_TABLE . " set `fromUserName` = '{$fromUserName}', `ticket` = 'authorized' where `scene_id` = '{$scene_id}'";
+            $mysql->query($sql);
+            sleep(2);
+            $weObj->text('Welcome to the Free WiFi')->reply();
         }
         break;
     case Wechat::MSGTYPE_IMAGE:
