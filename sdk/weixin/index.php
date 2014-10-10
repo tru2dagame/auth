@@ -37,7 +37,7 @@ switch($type) {
             
                 foreach ($res as $key => $value) {
                     UniFi::sendUnauthorization($value['Mac_ID']);
-                    sleep(5);
+                    sleep(2);
                 }
             }
         } else if (strtolower($event) == 'scan') {
