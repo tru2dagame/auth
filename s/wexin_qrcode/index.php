@@ -29,11 +29,9 @@ if (!is_array($res) || count($res) <= 0) {
     if (!$fromUserName) {
         include_once (WEIXIN_PATH . '/class/wechat.class.php');
         $options = array(
-                         'token'=>'UBNTXjNqxjty', //填写你设定的key
-                         'appid'=>'wx1192836da9513680', //填写高级调用功能的app id
-                         // 'appid'=>'wxcb06cb78eeb366c2', //填写高级调用功能的app id Eric
-                         'appsecret'=>'795fe5cd06e4b50e7c1b438df4eb0cd7', //填写高级调用功能的密钥
-                         // 'appsecret'=>'df459a7c980c99ecccb50047a1de813a', //填写高级调用功能的密钥 Eric
+                         'token'=>WECHAT_TOKEN, //填写你设定的key
+                         'appid'=>WECHAT_APPID, //填写高级调用功能的app id
+                         'appsecret'=>WECHAT_APPSECRET, //填写高级调用功能的密钥
                          );
 
         $weObj = new Wechat($options);
@@ -42,7 +40,6 @@ if (!is_array($res) || count($res) <= 0) {
         $result = $mysql->query($sql, 'all');
         $expire = 500;
         if (!is_array($result) || count($result) < 0) {
-            echo "if 111";
             $sql = "select `scene_id` from " . WEIXIN_TABLE . " order by id desc limit 1";
             $scene_id = $mysql->query($sql, '1');
             $scene_id = $scene_id % 9999 + 1;
@@ -51,24 +48,17 @@ if (!is_array($res) || count($res) <= 0) {
             $sql = "insert into " . WEIXIN_TABLE . " (`Mac_ID`, `ticket`, `scene_id`,  `site`)
                     values ('{$Mac_ID}', '{$ticket}', '{$scene_id}', '{$site}')";
         } else {
-            echo "else 111";
             $created_at = $result[0]['created_at'];
             $updated_at = $result[0]['updated_at'];
             $now = time();
             if (($now - strtotime($created_at) > $expire) && ($now - strtotime($updated_at) > $expire)) {
-                echo "time if:";
                 $qrcode = $weObj->getQRCode($result[0]['scene_id'], $type=0, $expire);
                 $ticket = $qrcode['ticket'];
                 $updated_at = date("Y-m-d H:i:s");
                 $sql = "update " . WEIXIN_TABLE . " set `ticket` = '{$ticket}', `updated_at` = '{$updated_at}' where `Mac_ID` = '{$Mac_ID}'";
 
-                echo $updated_at;
-                echo $ticket;
-
             } else {
-                echo "time else:";
                 $ticket = $result[0]['ticket'];
-                echo $ticket;
             }
         }
 
@@ -97,9 +87,6 @@ testImg.onload = function(){
         exit();
 
     }
-    echo 111;
-    /* $sql = "insert into " . WEIXIN_TABLE . " (`Mac_ID`, `fromUserName`) */
-    /*         values ('{$Mac_ID}', '{$fromUserName}')"; */
     $sql = "update " . WEIXIN_TABLE . " set `fromUserName` = '{$fromUserName}' where `Mac_ID` = '{$Mac_ID}'";
     echo $sql;
     $mysql->query($sql);
